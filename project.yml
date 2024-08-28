@@ -35,6 +35,8 @@
     - -:test/support
   :source:
     - src/**
+    - 'src'
+    - 'test'
   :support:
     - test/support
   :libraries: []
@@ -70,6 +72,7 @@
 # For more information on these options, see docs in plugins/gcov
 :gcov:
   :reports:
+    - Cobertura
     - HtmlDetailed
   :gcovr:
     :html_medium_threshold: 75
@@ -98,4 +101,6 @@
   :enabled:
     - stdout_pretty_tests_report
     - module_generator
+    - gcov
+    - junit_tests_report
 ...

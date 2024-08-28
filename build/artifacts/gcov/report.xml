@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<testsuites tests="5" failures="0" time="0.005">
+  <testsuite name="test_chacha" tests="5" failures="0" skipped="0" errors="0" time="0.005">
+    <testcase name="test_chacha20_init_context" time="0.000"/>
+    <testcase name="test_chacha20_encrypt_known_vector" time="0.000"/>
+    <testcase name="test_chacha20_generate_keystream" time="0.000"/>
+    <testcase name="test_chacha20_encrypt_with_different_counters" time="0.000"/>
+    <testcase name="test_chacha20_encrypt_with_different_nonces" time="0.000"/>
+  </testsuite>
+</testsuites>
