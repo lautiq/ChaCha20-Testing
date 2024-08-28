@@ -12,25 +12,19 @@ static struct chacha20_context ctx;
 
 static const uint8_t test_key[32] = {
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-
-};
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 
 
 static const uint8_t test_nonce[12] = {
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 
-    0x00, 0x00, 0x00, 0x00
-
-};
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 
 
@@ -42,15 +36,13 @@ static const uint64_t test_counter = 0;
 
 static uint8_t plaintext[] = {
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
-};
 
 
 
@@ -58,29 +50,21 @@ static uint8_t plaintext[] = {
 
 static const uint8_t expected_ciphertext[] = {
 
-    0x76, 0xb8, 0xe0, 0xad, 0xa0, 0xf1, 0x3d, 0x90,
+    0x76, 0xb8, 0xe0, 0xad, 0xa0, 0xf1, 0x3d, 0x90, 0x40, 0x5d, 0x6a,
 
-    0x40, 0x5d, 0x6a, 0xe5, 0x53, 0x86, 0xbd, 0x28,
+    0xe5, 0x53, 0x86, 0xbd, 0x28, 0xbd, 0xd2, 0x19, 0xb8, 0xa0, 0x8d,
 
-    0xbd, 0xd2, 0x19, 0xb8, 0xa0, 0x8d, 0xed, 0x1a,
+    0xed, 0x1a, 0xa8, 0x36, 0xef, 0xcc, 0x8b, 0x77, 0x0d, 0xc7};
 
-    0xa8, 0x36, 0xef, 0xcc, 0x8b, 0x77, 0x0d, 0xc7
 
-};
 
 
 
 static const uint32_t expected_keystream32[16] = {
 
-        0xade0b876, 0x903df1a0, 0xe56a5d40, 0x28bd8653,
+    0xade0b876, 0x903df1a0, 0xe56a5d40, 0x28bd8653, 0xb819d2bd, 0x1aed8da0, 0xccef36a8, 0xc70d778b,
 
-        0xb819d2bd, 0x1aed8da0, 0xccef36a8, 0xc70d778b,
-
-        0x7c5941da, 0x8d485751, 0x3fe02477, 0x374ad8b8,
-
-        0xf4b8436a, 0x1ca11815, 0x69b687c3, 0x8665eeb2
-
-};
+    0x7c5941da, 0x8d485751, 0x3fe02477, 0x374ad8b8, 0xf4b8436a, 0x1ca11815, 0x69b687c3, 0x8665eeb2};
 
 
 
@@ -106,25 +90,25 @@ void test_chacha20_init_context(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(63), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_UINT32);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)((0x3320646e)), (UNITY_INT)(UNITY_UINT32)((ctx.state[1])), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(64), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(57), UNITY_DISPLAY_STYLE_UINT32);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)((0x79622d32)), (UNITY_INT)(UNITY_UINT32)((ctx.state[2])), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(65), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(58), UNITY_DISPLAY_STYLE_UINT32);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)((0x6b206574)), (UNITY_INT)(UNITY_UINT32)((ctx.state[3])), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(66), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(59), UNITY_DISPLAY_STYLE_UINT32);
 
 
 
@@ -134,7 +118,7 @@ void test_chacha20_init_context(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(62), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -144,7 +128,7 @@ void test_chacha20_init_context(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(72), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(65), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 
 
@@ -154,13 +138,13 @@ void test_chacha20_init_context(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(75), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_UINT32);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT32)((0)), (UNITY_INT)(UNITY_UINT32)((ctx.state[13])), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(76), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_UINT32);
 
 
 
@@ -170,7 +154,7 @@ void test_chacha20_init_context(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(79), UNITY_DISPLAY_STYLE_UINT32);
+   ), (UNITY_UINT)(72), UNITY_DISPLAY_STYLE_UINT32);
 
 }
 
@@ -192,7 +176,7 @@ void test_chacha20_encrypt_known_vector(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(88), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(81), UNITY_DISPLAY_STYLE_UINT8, UNITY_ARRAY_TO_ARRAY);
 
 }
 
@@ -210,7 +194,7 @@ void test_chacha20_generate_keystream(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(95), UNITY_DISPLAY_STYLE_UINT32, UNITY_ARRAY_TO_ARRAY);
+   ), (UNITY_UINT)(88), UNITY_DISPLAY_STYLE_UINT32, UNITY_ARRAY_TO_ARRAY);
 
 }
 
@@ -252,7 +236,7 @@ void test_chacha20_encrypt_with_different_counters(void) {
 
 
 
-    do {if (((0) != (memcmp(ciphertext_counter_0, ciphertext_counter_1, sizeof(plaintext))))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(116)));}} while(0);
+    do {if (((0) != (memcmp(ciphertext_counter_0, ciphertext_counter_1, sizeof(plaintext))))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(109)));}} while(0);
 
 }
 
@@ -280,13 +264,9 @@ void test_chacha20_encrypt_with_different_nonces(void) {
 
 
 
-    uint8_t new_nonce[12] = {
+    uint8_t new_nonce[12] = {0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
 
-        0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01,
-
-        0x01, 0x01, 0x01, 0x01
-
-    };
+                             0x01, 0x01, 0x01, 0x01, 0x01, 0x01};
 
 
 
@@ -304,6 +284,6 @@ void test_chacha20_encrypt_with_different_nonces(void) {
 
 
 
-    do {if (((0) != (memcmp(ciphertext_nonce_0, ciphertext_nonce_1, sizeof(plaintext))))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(142)));}} while(0);
+    do {if (((0) != (memcmp(ciphertext_nonce_0, ciphertext_nonce_1, sizeof(plaintext))))) {} else {UnityFail( ((" Expected Not-Equal")), (UNITY_UINT)((UNITY_UINT)(133)));}} while(0);
 
 }

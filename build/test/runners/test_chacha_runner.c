@@ -82,11 +82,11 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_chacha.c");
-  run_test(test_chacha20_init_context, "test_chacha20_init_context", 61);
-  run_test(test_chacha20_encrypt_known_vector, "test_chacha20_encrypt_known_vector", 83);
-  run_test(test_chacha20_generate_keystream, "test_chacha20_generate_keystream", 92);
-  run_test(test_chacha20_encrypt_with_different_counters, "test_chacha20_encrypt_with_different_counters", 99);
-  run_test(test_chacha20_encrypt_with_different_nonces, "test_chacha20_encrypt_with_different_nonces", 120);
+  run_test(test_chacha20_init_context, "test_chacha20_init_context", 54);
+  run_test(test_chacha20_encrypt_known_vector, "test_chacha20_encrypt_known_vector", 76);
+  run_test(test_chacha20_generate_keystream, "test_chacha20_generate_keystream", 85);
+  run_test(test_chacha20_encrypt_with_different_counters, "test_chacha20_encrypt_with_different_counters", 92);
+  run_test(test_chacha20_encrypt_with_different_nonces, "test_chacha20_encrypt_with_different_nonces", 113);
 
   return UnityEnd();
 }
