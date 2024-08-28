@@ -5,7 +5,7 @@
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
-char* GlobalOrderError;
+char * GlobalOrderError;
 
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
@@ -16,43 +16,37 @@ extern void test_chacha20_generate_keystream(void);
 extern void test_chacha20_encrypt_with_different_counters(void);
 extern void test_chacha20_encrypt_with_different_nonces(void);
 
-
 /*=======Mock Management=====*/
-static void CMock_Init(void)
-{
-  GlobalExpectCount = 0;
-  GlobalVerifyOrder = 0;
-  GlobalOrderError = NULL;
+static void CMock_Init(void) {
+    GlobalExpectCount = 0;
+    GlobalVerifyOrder = 0;
+    GlobalOrderError = NULL;
 }
-static void CMock_Verify(void)
-{
+static void CMock_Verify(void) {
 }
-static void CMock_Destroy(void)
-{
+static void CMock_Destroy(void) {
 }
 
 /*=======Teardown (stub)=====*/
-void tearDown(void) {}
+void tearDown(void) {
+}
 
 /*=======Test Reset Options=====*/
 void resetTest(void);
-void resetTest(void)
-{
-  tearDown();
-  CMock_Verify();
-  CMock_Destroy();
-  CMock_Init();
-  setUp();
+void resetTest(void) {
+    tearDown();
+    CMock_Verify();
+    CMock_Destroy();
+    CMock_Init();
+    setUp();
 }
 void verifyTest(void);
-void verifyTest(void)
-{
-  CMock_Verify();
+void verifyTest(void) {
+    CMock_Verify();
 }
 
 /*=======Test Runner Used To Run Each Test=====*/
-static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE line_num)
-{
+static void run_test(UnityTestFunction func, const char * name, UNITY_LINE_TYPE line_num) {
     Unity.CurrentTestName = name;
     Unity.CurrentTestLineNumber = line_num;
 #ifdef UNITY_USE_COMMAND_LINE_ARGS
@@ -63,13 +57,11 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
     UNITY_CLR_DETAILS();
     UNITY_EXEC_TIME_START();
     CMock_Init();
-    if (TEST_PROTECT())
-    {
+    if (TEST_PROTECT()) {
         setUp();
         func();
     }
-    if (TEST_PROTECT())
-    {
+    if (TEST_PROTECT()) {
         tearDown();
         CMock_Verify();
     }
@@ -79,14 +71,15 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 }
 
 /*=======MAIN=====*/
-int main(void)
-{
-  UnityBegin("test_chacha.c");
-  run_test(test_chacha20_init_context, "test_chacha20_init_context", 61);
-  run_test(test_chacha20_encrypt_known_vector, "test_chacha20_encrypt_known_vector", 83);
-  run_test(test_chacha20_generate_keystream, "test_chacha20_generate_keystream", 92);
-  run_test(test_chacha20_encrypt_with_different_counters, "test_chacha20_encrypt_with_different_counters", 99);
-  run_test(test_chacha20_encrypt_with_different_nonces, "test_chacha20_encrypt_with_different_nonces", 120);
+int main(void) {
+    UnityBegin("test_chacha.c");
+    run_test(test_chacha20_init_context, "test_chacha20_init_context", 54);
+    run_test(test_chacha20_encrypt_known_vector, "test_chacha20_encrypt_known_vector", 76);
+    run_test(test_chacha20_generate_keystream, "test_chacha20_generate_keystream", 85);
+    run_test(test_chacha20_encrypt_with_different_counters,
+             "test_chacha20_encrypt_with_different_counters", 92);
+    run_test(test_chacha20_encrypt_with_different_nonces,
+             "test_chacha20_encrypt_with_different_nonces", 113);
 
-  return UnityEnd();
+    return UnityEnd();
 }

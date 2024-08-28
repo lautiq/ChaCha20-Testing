@@ -1,0 +1,34 @@
+---
+:source:
+  :path: test
+  :file: test_chacha.c
+:successes:
+- :test: test_chacha20_init_context
+  :line: 54
+  :message: ''
+  :unity_test_time: 0
+- :test: test_chacha20_encrypt_known_vector
+  :line: 76
+  :message: ''
+  :unity_test_time: 0
+- :test: test_chacha20_generate_keystream
+  :line: 85
+  :message: ''
+  :unity_test_time: 0
+- :test: test_chacha20_encrypt_with_different_counters
+  :line: 92
+  :message: ''
+  :unity_test_time: 0
+- :test: test_chacha20_encrypt_with_different_nonces
+  :line: 113
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 5
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0021709809989260975
